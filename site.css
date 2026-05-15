@@ -1,3 +1,4 @@
+
   :root {
     --navy: #1A2035;
     --navy-card: #212B45;
@@ -287,28 +288,106 @@
   }
   .hero-credentials span { position: relative; }
 
-  /* ------- WAVE BAR ------- */
-  .wave-bar {
-    background: var(--navy);
-    color: #fff;
-    padding: 24px 0;
-    overflow: hidden;
-    border-top: 1px solid var(--navy);
-    border-bottom: 1px solid var(--navy);
+  /* ------- NUMBERS SECTION ------- */
+  .numbers {
+    background: var(--bg-alt);
+    padding: clamp(72px, 9vw, 110px) 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
   }
-  .wave-inner {
-    display: flex;
-    align-items: center;
-    gap: clamp(24px, 4vw, 64px);
-    font-size: 13px;
+  .numbers-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 64px;
+  }
+  .numbers-header .section-label { margin-bottom: 24px; }
+  .numbers-header h2 {
+    font-size: clamp(28px, 3.6vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .numbers-header h2 em {
+    font-family: var(--font-editorial);
+    font-style: italic;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    flex-wrap: wrap;
-    justify-content: center;
+    color: var(--teal-deep);
   }
-  .wave-inner strong { color: var(--teal); font-weight: 700; }
-  .wave-dot { display: inline-block; width: 5px; height: 5px; background: var(--amber); border-radius: 50%; }
+  .numbers-header p {
+    font-family: var(--font-editorial);
+    font-size: clamp(17px, 1.7vw, 20px);
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+  }
+  @media (max-width: 900px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .numbers-grid { grid-template-columns: 1fr; } }
+  .number-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    padding: 36px 28px 32px;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(.16,1,.3,1), box-shadow 0.35s ease;
+  }
+  .number-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 2px;
+    background: var(--teal);
+  }
+  .number-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -16px rgba(26, 32, 53, 0.18);
+  }
+  .number-card-value {
+    font-size: clamp(38px, 4.6vw, 58px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  .number-card-value em {
+    color: var(--teal-deep);
+    font-family: var(--font-display);
+    font-style: normal;
+    font-size: 0.55em;
+    margin-left: 2px;
+    vertical-align: top;
+  }
+  .number-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .number-card-context {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .numbers-footnote {
+    margin-top: 48px;
+    text-align: center;
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: clamp(17px, 1.8vw, 20px);
+    color: var(--navy);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
 
   /* ------- PROBLEM ------- */
   .problem { padding: var(--section-y) 0; background: var(--bg-alt); }
@@ -520,52 +599,133 @@
   }
   .method-header h2 em { font-family: var(--font-editorial); font-style: italic; font-weight: 500; color: var(--teal-deep); }
   .method-header p { font-size: 18px; color: var(--text-muted); line-height: 1.5; max-width: 640px; }
-  .offer-list { border-top: 1px solid var(--hairline-strong); }
-  .offer-row {
+  .offer-grid {
     display: grid;
-    grid-template-columns: 60px 200px 1fr 240px 180px;
-    gap: 32px;
-    align-items: center;
-    padding: 36px 0;
-    border-bottom: 1px solid var(--hairline);
-    transition: background 0.3s ease;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.4vw, 32px);
   }
-  @media (max-width: 1100px) {
-    .offer-row { grid-template-columns: 60px 1fr; gap: 16px 24px; }
-    .offer-row > *:nth-child(3) { grid-column: 1 / -1; padding-top: 4px; }
-    .offer-row > *:nth-child(4) { grid-column: 1 / -1; }
-    .offer-row > *:nth-child(5) { grid-column: 1 / -1; justify-self: start; }
+  @media (max-width: 1000px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .offer-grid { grid-template-columns: 1fr; } }
+  .offer-tile {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    padding: 36px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(.16,1,.3,1), box-shadow 0.35s ease, border-color 0.3s ease;
+    min-height: 360px;
   }
-  .offer-row:hover { background: var(--bg-alt); }
-  .offer-num { font-family: var(--font-editorial); font-style: italic; font-size: 28px; color: var(--teal-deep); font-weight: 500; }
-  .offer-name {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .offer-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 50px; height: 3px;
+    background: var(--teal);
+  }
+  .offer-tile.featured::before { width: 100%; background: var(--navy); }
+  .offer-tile.featured {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .offer-tile.featured .offer-tile-num,
+  .offer-tile.featured .offer-tile-name,
+  .offer-tile.featured .offer-tile-price { color: #fff; }
+  .offer-tile.featured .offer-tile-desc,
+  .offer-tile.featured .offer-tile-price small { color: #BFC7D9; }
+  .offer-tile.featured .offer-tile-cta {
+    color: #fff;
+    border-color: var(--teal);
+  }
+  .offer-tile.featured .offer-tile-cta:hover {
+    color: var(--teal);
+    background: rgba(43, 191, 184, 0.08);
+  }
+  .offer-tile.featured .offer-tile-badge {
+    background: var(--teal);
     color: var(--navy);
   }
-  .offer-desc { font-size: 15px; color: var(--text-muted); line-height: 1.5; }
-  .offer-price { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.3; }
-  .offer-price small {
+  .offer-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -20px rgba(26, 32, 53, 0.22);
+  }
+  .offer-tile-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--bg-alt);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+  }
+  .offer-tile-num {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--teal-deep);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .offer-tile-name {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .offer-tile-desc {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .offer-tile-divider {
+    height: 1px;
+    background: var(--hairline);
+    margin: 0 0 18px;
+  }
+  .offer-tile.featured .offer-tile-divider { background: rgba(255,255,255,0.15); }
+  .offer-tile-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .offer-tile-price small {
     display: block;
     font-size: 12px;
     font-weight: 400;
     color: var(--text-muted);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     margin-top: 4px;
   }
-  .offer-cta {
+  .offer-tile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 22px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--navy);
-    border-bottom: 1px solid var(--navy);
-    padding-bottom: 4px;
+    border: 1px solid var(--navy);
+    padding: 12px 18px;
+    align-self: flex-start;
     transition: all 0.25s ease;
   }
-  .offer-cta:hover { color: var(--teal-deep); border-color: var(--teal-deep); }
+  .offer-tile-cta:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+  .offer-tile-cta-arrow { transition: transform 0.25s ease; }
+  .offer-tile-cta:hover .offer-tile-cta-arrow { transform: translateX(3px); }
 
   /* ------- ABOUT ------- */
   .about { padding: var(--section-y) 0; background: var(--bg-alt); }
@@ -792,14 +952,13 @@
   footer { background: #fff; padding: 72px 0 36px; border-top: 1px solid var(--hairline); }
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 48px;
     margin-bottom: 56px;
     padding-bottom: 56px;
     border-bottom: 1px solid var(--hairline);
   }
-  @media (max-width: 1000px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
-  @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
   .footer-brand h4 {
     font-size: 14px;
     font-weight: 700;
@@ -846,116 +1005,3 @@
     .nav-cta { padding: 8px 12px; }
     .hero h1 { font-size: 38px; }
   }
-
-  /* ------- NAV LINK (Contact) ------- */
-  .nav-link {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--navy);
-    padding: 8px 4px;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-  }
-  .nav-link:hover { color: var(--teal-deep); }
-  @media (max-width: 600px) {
-    .nav-link { display: none; }
-  }
-
-  /* ------- LEGAL PAGES ------- */
-  .legal-page {
-    padding: clamp(60px, 8vw, 110px) 0 clamp(60px, 8vw, 90px);
-  }
-  .legal-page .content {
-    max-width: var(--content);
-    margin: 0 auto;
-  }
-  .legal-page .eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 18px;
-  }
-  .legal-page h1 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.08;
-    color: var(--navy);
-    margin-bottom: 16px;
-  }
-  .legal-page .lead {
-    font-family: var(--font-editorial);
-    font-size: 20px;
-    line-height: 1.55;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-  .legal-page .updated {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 56px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .legal-page h2 {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 48px 0 16px;
-    letter-spacing: -0.01em;
-  }
-  .legal-page h3 {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 28px 0 10px;
-  }
-  .legal-page p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  .legal-page ul, .legal-page ol {
-    margin: 0 0 16px 22px;
-  }
-  .legal-page li {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-  .legal-page a { color: var(--teal-deep); text-decoration: underline; }
-  .legal-page a:hover { color: var(--navy); }
-  .legal-page strong { font-weight: 700; color: var(--navy); }
-  .legal-page .note {
-    background: var(--bg-alt);
-    padding: 20px 24px;
-    border-left: 3px solid var(--teal);
-    margin: 24px 0;
-    font-size: 15px;
-    color: var(--text);
-  }
-  .legal-page .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin: 32px 0;
-  }
-  @media (max-width: 600px) { .legal-page .contact-grid { grid-template-columns: 1fr; gap: 20px; } }
-  .legal-page .contact-card {
-    background: #fff;
-    padding: 28px;
-    border: 1px solid var(--hairline);
-  }
-  .legal-page .contact-card h3 { margin-top: 0; }
-  .legal-page .contact-card a { word-break: break-word; }
