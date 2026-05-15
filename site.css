@@ -323,11 +323,10 @@
   }
   .numbers-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(16px, 2vw, 24px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2vw, 28px);
   }
-  @media (max-width: 900px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 520px) { .numbers-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .numbers-grid { grid-template-columns: 1fr; } }
   .number-card {
     background: var(--surface);
     border: 1px solid var(--hairline);
