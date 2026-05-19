@@ -157,19 +157,19 @@
 
   /* ------- HERO ------- */
   .hero {
-    padding: clamp(60px, 8vw, 110px) 0 clamp(60px, 8vw, 90px);
+    padding: clamp(80px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
     position: relative;
     overflow: hidden;
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: clamp(32px, 5vw, 80px);
     align-items: center;
     position: relative;
   }
   @media (max-width: 960px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
   }
   .hero-text { position: relative; z-index: 3; }
   .hero-photo {
@@ -177,31 +177,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 540px;
+    min-height: 560px;
   }
   .hero-photo::before {
+    /* The single oversized ultra-thin teal circle */
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-46%, -46%);
-    width: clamp(440px, 44vw, 600px);
-    height: clamp(440px, 44vw, 600px);
+    transform: translate(-44%, -50%);
+    width: clamp(560px, 55vw, 780px);
+    height: clamp(560px, 55vw, 780px);
     border: 1px solid var(--teal);
     border-radius: 50%;
-    opacity: 0.25;
-    z-index: 0;
-    pointer-events: none;
-  }
-  .hero-photo::after {
-    content: '';
-    position: absolute;
-    left: -8px;
-    bottom: -12px;
-    width: 56%;
-    height: 14%;
-    background: var(--teal);
-    opacity: 0.85;
+    opacity: 0.18;
     z-index: 0;
     pointer-events: none;
   }
@@ -209,7 +198,8 @@
     position: relative;
     z-index: 2;
     max-width: 100%;
-    width: clamp(320px, 40vw, 480px);
+    width: clamp(380px, 42vw, 520px);
+    max-height: calc(100vh - 200px);
     aspect-ratio: 4/5;
     overflow: hidden;
     background: var(--navy);
@@ -221,17 +211,32 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 32%;
+    object-position: center 30%;
     display: block;
   }
+  .hero-photo .accent-dot {
+    /* Solid teal punctuation dot, bottom-left of the frame */
+    position: absolute;
+    bottom: -7px;
+    left: calc(50% - 90px);
+    width: 14px;
+    height: 14px;
+    background: var(--teal);
+    border-radius: 50%;
+    z-index: 3;
+    pointer-events: none;
+  }
   @media (max-width: 960px) {
-    .hero-photo { min-height: 460px; order: -1; }
-    .hero-photo .frame { width: min(380px, 80vw); }
+    .hero-photo { min-height: 480px; order: -1; }
+    .hero-photo .frame { width: min(420px, 82vw); max-height: none; }
+    .hero-photo::before { transform: translate(-50%, -50%) scale(0.9); }
+    .hero-photo .accent-dot { left: calc(50% - 80px); }
   }
   @media (max-width: 500px) {
-    .hero-photo { min-height: 380px; }
-    .hero-photo .frame { width: min(300px, 85vw); }
-    .hero-photo::before { transform: translate(-46%, -46%) scale(0.85); }
+    .hero-photo { min-height: 400px; }
+    .hero-photo .frame { width: min(320px, 86vw); }
+    .hero-photo::before { transform: translate(-50%, -50%) scale(0.75); opacity: 0.2; }
+    .hero-photo .accent-dot { left: calc(50% - 64px); width: 12px; height: 12px; }
   }
   .eyebrow {
     display: inline-block;
@@ -254,22 +259,22 @@
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6.2vw, 84px);
+    font-size: clamp(40px, 5.5vw, 72px);
     font-weight: 700;
-    line-height: 1.02;
+    line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--navy);
-    max-width: 1050px;
-    margin-bottom: 36px;
+    max-width: 720px;
+    margin-bottom: 28px;
   }
   .hero h1 em { font-family: var(--font-editorial); font-style: italic; font-weight: 500; color: var(--teal-deep); }
   .hero-sub {
     font-family: var(--font-editorial);
-    font-size: clamp(20px, 2.2vw, 26px);
-    line-height: 1.45;
+    font-size: clamp(18px, 1.9vw, 24px);
+    line-height: 1.5;
     color: var(--text-muted);
-    max-width: 720px;
-    margin-bottom: 48px;
+    max-width: 640px;
+    margin-bottom: 40px;
     font-weight: 400;
   }
   .hero-cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 72px; }
@@ -291,23 +296,24 @@
   /* ------- NUMBERS SECTION ------- */
   .numbers {
     background: var(--bg-alt);
-    padding: clamp(72px, 9vw, 110px) 0;
+    padding: clamp(80px, 10vw, 120px) 0;
     border-top: 1px solid var(--hairline);
     border-bottom: 1px solid var(--hairline);
   }
+  .numbers-container { max-width: 1080px; }
   .numbers-header {
     text-align: center;
     max-width: 760px;
-    margin: 0 auto 64px;
+    margin: 0 auto 80px;
   }
   .numbers-header .section-label { margin-bottom: 24px; }
   .numbers-header h2 {
-    font-size: clamp(28px, 3.6vw, 44px);
+    font-size: clamp(30px, 3.8vw, 46px);
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.015em;
     color: var(--navy);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
   .numbers-header h2 em {
     font-family: var(--font-editorial);
@@ -324,13 +330,13 @@
   .numbers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(16px, 2vw, 28px);
+    gap: clamp(20px, 2.2vw, 32px);
   }
   @media (max-width: 900px) { .numbers-grid { grid-template-columns: 1fr; } }
   .number-card {
     background: var(--surface);
     border: 1px solid var(--hairline);
-    padding: 36px 28px 32px;
+    padding: 48px 36px 40px;
     position: relative;
     transition: transform 0.35s cubic-bezier(.16,1,.3,1), box-shadow 0.35s ease;
   }
@@ -343,49 +349,50 @@
   }
   .number-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 32px -16px rgba(26, 32, 53, 0.18);
+    box-shadow: 0 16px 32px -16px rgba(26, 32, 53, 0.12);
   }
   .number-card-value {
-    font-size: clamp(38px, 4.6vw, 58px);
+    font-size: clamp(48px, 5.5vw, 72px);
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
     color: var(--navy);
     margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 18px;
+  }
+  .number-card-value::after {
+    /* hairline underline anchoring each value */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 1px;
+    background: var(--teal);
   }
   .number-card-value em {
     color: var(--teal-deep);
     font-family: var(--font-display);
     font-style: normal;
-    font-size: 0.55em;
-    margin-left: 2px;
+    font-size: 0.5em;
+    margin-left: 4px;
     vertical-align: top;
+    letter-spacing: 0;
   }
   .number-card-label {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 10px;
+    color: var(--navy);
+    margin-bottom: 12px;
     line-height: 1.35;
   }
   .number-card-context {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-  .numbers-footnote {
-    margin-top: 48px;
-    text-align: center;
-    font-family: var(--font-editorial);
-    font-style: italic;
-    font-size: clamp(17px, 1.8vw, 20px);
-    color: var(--navy);
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.55;
   }
 
   /* ------- PROBLEM ------- */
@@ -874,22 +881,19 @@
   .pov-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 56px;
-    padding: 40px 0;
-    border-top: 1px solid var(--hairline-strong);
-    border-bottom: 1px solid var(--hairline-strong);
+    gap: clamp(24px, 3vw, 40px);
+    margin-bottom: 48px;
   }
   @media (max-width: 800px) { .pov-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
   .pov-stat-num {
     font-size: clamp(28px, 3vw, 40px);
     font-weight: 700;
-    color: var(--navy);
+    color: var(--teal-deep);
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: -0.02em;
   }
-  .pov-stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.08em; line-height: 1.45; }
+  .pov-stat-label { font-size: 13px; color: var(--text-muted); letter-spacing: 0.04em; line-height: 1.45; }
   .pov-copy {
     font-family: var(--font-editorial);
     font-size: clamp(19px, 1.9vw, 23px);
@@ -995,12 +999,63 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1); }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
+  /* ------- MOBILE HARDENING -------
+   * Targets: 360 / 390 / 414 px viewports.
+   * - sticky nav under 56px so it doesn't dominate the viewport
+   * - every interactive target >= 48px tall (lang toggle, nav CTA, primary CTAs)
+   * - body copy floor at 15px (catches anything not already clamped)
+   * - looser uppercase tracking on small screens for legibility
+   * - hero photo stacks above text (handled by hero-photo order:-1 at 960px)
+   * - French strings: lots of section copy is 20-40% longer than EN — relying
+   *   on clamp() font sizing + flex-wrap for proof/credentials rows.
+   */
   @media (max-width: 720px) {
     .brand-sub { display: none; }
-    .nav-cta { padding: 9px 14px; font-size: 11px; }
-    .lang-btn { padding: 6px 10px; min-width: 36px; font-size: 11px; }
+    .nav-cta {
+      padding: 14px 18px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      min-height: 48px;
+    }
+    .lang-btn {
+      padding: 13px 14px;
+      min-width: 44px;
+      min-height: 44px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+    }
+  }
+  @media (max-width: 640px) {
+    /* Nav under 56px */
+    .nav-inner { height: 56px; gap: 12px; }
+    .brand-name { font-size: 13px; letter-spacing: 0.18em; }
+
+    /* Container breathing room */
+    .container { padding-left: 24px; padding-right: 24px; }
+
+    /* Body-copy floor (most already use clamp — this catches stragglers) */
+    .number-card-context,
+    .pov-stat-label,
+    .hero-credentials,
+    .hero-cta-note { font-size: 14px; }
+
+    /* Primary CTA buttons keep a comfortable touch height + looser tracking */
+    .btn { padding: 18px 28px; font-size: 12px; letter-spacing: 0.1em; min-height: 52px; }
+
+    /* Hero column rebalanced; H1 scales fluidly, photo a touch smaller */
+    .hero h1 { font-size: clamp(32px, 8.6vw, 44px); line-height: 1.1; max-width: 100%; }
+    .hero-sub { font-size: 17px; line-height: 1.5; }
+    .hero-credentials { gap: 16px 24px; letter-spacing: 0.12em; }
+
+    /* Numbers section padding pulled in so cards breathe */
+    .numbers-header { margin-bottom: 56px; }
+    .number-card { padding: 36px 24px 32px; }
+    .number-card-value { padding-bottom: 14px; margin-bottom: 14px; }
+
+    /* POV stats stacking 2x2; tighten label tracking for FR length */
+    .pov-stat-label { letter-spacing: 0.03em; }
   }
   @media (max-width: 500px) {
-    .nav-cta { padding: 8px 12px; }
-    .hero h1 { font-size: 38px; }
+    .nav-cta { padding: 12px 14px; font-size: 11px; min-height: 44px; }
+    .hero h1 { font-size: clamp(30px, 9vw, 40px); }
   }
