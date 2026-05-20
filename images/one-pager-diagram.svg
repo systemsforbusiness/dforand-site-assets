@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The One-Pager Diagram
+  ─────────────────────
+  Icon-style representation of the strategic plan one-pager Dominique
+  teaches in the workshop:
+    • VISION block (top, hero of the page)
+    • Three supporting sections — Core Values · Purpose · Brand Promise
+    • Four graduated priority horizons — short-term / next quarter / 1yr / 3-5yr
+    • Three KPI markers at the foot of the page
+
+  Brand palette only: navy (#1A2035), teal (#2BBFB8), amber (#FF8C00),
+  off-white (#FAFAF7).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" role="img" aria-labelledby="op-title op-desc">
+  <title id="op-title">The Strategic One-Pager</title>
+  <desc id="op-desc">A single page split into five sections: vision at the top, three supporting blocks for core values, purpose and brand promise, four priority horizons, and three top KPIs.</desc>
+
+  <!-- Subtle page-shadow underneath -->
+  <rect x="22" y="26" width="278" height="338" rx="5" fill="#1A2035" opacity="0.06"/>
+
+  <!-- Page silhouette -->
+  <rect x="20" y="20" width="280" height="340" rx="5" fill="#FFFFFF" stroke="#1A2035" stroke-width="1.5"/>
+
+  <!-- ============ VISION BLOCK ============ -->
+  <g>
+    <rect x="36" y="36" width="248" height="64" fill="#1A2035"/>
+    <!-- Teal accent bar inside the vision block (top-left) -->
+    <rect x="44" y="44" width="22" height="2" fill="#2BBFB8"/>
+    <!-- VISION label -->
+    <text x="44" y="58" font-family="Montserrat, system-ui, sans-serif" font-size="8" font-weight="700" letter-spacing="2.2" fill="#2BBFB8">VISION</text>
+    <!-- Three content-line indicators (representing the vision sentence wrapping) -->
+    <rect x="44" y="68" width="200" height="3" rx="1" fill="#F0F2F7"/>
+    <rect x="44" y="76" width="172" height="3" rx="1" fill="#F0F2F7"/>
+    <rect x="44" y="84" width="148" height="3" rx="1" fill="#F0F2F7" opacity="0.6"/>
+  </g>
+
+  <!-- ============ 3 SUPPORTING BLOCKS (Values · Purpose · Promise) ============ -->
+  <g>
+    <!-- Block 1: Core Values -->
+    <rect x="36" y="116" width="80" height="64" fill="#FAFAF7" stroke="#1A2035" stroke-width="1"/>
+    <rect x="36" y="116" width="22" height="2" fill="#2BBFB8"/>
+    <text x="44" y="138" font-family="Montserrat, system-ui, sans-serif" font-size="6" font-weight="700" letter-spacing="1.1" fill="#1A2035">VALUES</text>
+    <rect x="44" y="147" width="48" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="44" y="154" width="56" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="44" y="161" width="40" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="44" y="168" width="52" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+
+    <!-- Block 2: Purpose -->
+    <rect x="120" y="116" width="80" height="64" fill="#FAFAF7" stroke="#1A2035" stroke-width="1"/>
+    <rect x="120" y="116" width="22" height="2" fill="#2BBFB8"/>
+    <text x="128" y="138" font-family="Montserrat, system-ui, sans-serif" font-size="6" font-weight="700" letter-spacing="1.1" fill="#1A2035">PURPOSE</text>
+    <rect x="128" y="147" width="56" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="128" y="154" width="44" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="128" y="161" width="60" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="128" y="168" width="36" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+
+    <!-- Block 3: Brand Promise -->
+    <rect x="204" y="116" width="80" height="64" fill="#FAFAF7" stroke="#1A2035" stroke-width="1"/>
+    <rect x="204" y="116" width="22" height="2" fill="#2BBFB8"/>
+    <text x="212" y="138" font-family="Montserrat, system-ui, sans-serif" font-size="6" font-weight="700" letter-spacing="1.1" fill="#1A2035">PROMISE</text>
+    <rect x="212" y="147" width="44" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="212" y="154" width="60" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="212" y="161" width="48" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+    <rect x="212" y="168" width="32" height="2.5" rx="1" fill="#5A6278" opacity="0.45"/>
+  </g>
+
+  <!-- ============ PRIORITIES (4 horizon bars, graduated lengths) ============ -->
+  <g>
+    <text x="36" y="206" font-family="Montserrat, system-ui, sans-serif" font-size="7" font-weight="700" letter-spacing="1.5" fill="#1A2035">PRIORITIES</text>
+
+    <!-- Short term -->
+    <text x="36" y="222" font-family="Montserrat, system-ui, sans-serif" font-size="5" font-weight="600" letter-spacing="0.6" fill="#5A6278">SHORT TERM</text>
+    <rect x="36" y="226" width="248" height="6" rx="1" fill="#F0F2F7"/>
+    <rect x="36" y="226" width="44" height="6" rx="1" fill="#FF8C00"/>
+
+    <!-- Next quarter -->
+    <text x="36" y="246" font-family="Montserrat, system-ui, sans-serif" font-size="5" font-weight="600" letter-spacing="0.6" fill="#5A6278">NEXT QUARTER</text>
+    <rect x="36" y="250" width="248" height="6" rx="1" fill="#F0F2F7"/>
+    <rect x="36" y="250" width="92" height="6" rx="1" fill="#2BBFB8"/>
+
+    <!-- 1 year -->
+    <text x="36" y="270" font-family="Montserrat, system-ui, sans-serif" font-size="5" font-weight="600" letter-spacing="0.6" fill="#5A6278">1 YEAR</text>
+    <rect x="36" y="274" width="248" height="6" rx="1" fill="#F0F2F7"/>
+    <rect x="36" y="274" width="148" height="6" rx="1" fill="#2BBFB8"/>
+
+    <!-- 3-5 year -->
+    <text x="36" y="294" font-family="Montserrat, system-ui, sans-serif" font-size="5" font-weight="600" letter-spacing="0.6" fill="#5A6278">3-5 YEAR</text>
+    <rect x="36" y="298" width="248" height="6" rx="1" fill="#F0F2F7"/>
+    <rect x="36" y="298" width="228" height="6" rx="1" fill="#1A2035"/>
+  </g>
+
+  <!-- ============ 3 TOP KPIs (dots) ============ -->
+  <g>
+    <text x="36" y="328" font-family="Montserrat, system-ui, sans-serif" font-size="7" font-weight="700" letter-spacing="1.5" fill="#1A2035">TOP 3 KPIs</text>
+    <circle cx="88"  cy="346" r="8" fill="#2BBFB8"/>
+    <circle cx="160" cy="346" r="8" fill="#2BBFB8"/>
+    <circle cx="232" cy="346" r="8" fill="#2BBFB8"/>
+    <!-- Hairlines connecting KPIs back to the priorities (subtle visual link) -->
+    <line x1="88" y1="338" x2="88" y2="312" stroke="#2BBFB8" stroke-width="0.5" opacity="0.4"/>
+    <line x1="160" y1="338" x2="160" y2="312" stroke="#2BBFB8" stroke-width="0.5" opacity="0.4"/>
+    <line x1="232" y1="338" x2="232" y2="312" stroke="#2BBFB8" stroke-width="0.5" opacity="0.4"/>
+  </g>
+</svg>
