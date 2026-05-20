@@ -563,19 +563,21 @@
   }
   .one-pager-hero {
     max-width: 280px;
-    margin-bottom: 36px;
+    margin-top: 32px;
+    margin-bottom: 72px;
   }
   .one-pager-waw {
     max-width: 240px;
-    margin-bottom: 28px;
+    margin-top: 56px;
+    margin-bottom: 64px;
   }
   @media (max-width: 700px) {
-    .one-pager-hero { max-width: 220px; margin-bottom: 28px; }
-    .one-pager-waw  { max-width: 200px; margin-bottom: 24px; }
+    .one-pager-hero { max-width: 220px; margin-top: 24px; margin-bottom: 56px; }
+    .one-pager-waw  { max-width: 200px; margin-top: 40px; margin-bottom: 48px; }
   }
   @media (max-width: 420px) {
-    .one-pager-hero { max-width: 180px; }
-    .one-pager-waw  { max-width: 168px; }
+    .one-pager-hero { max-width: 180px; margin-top: 16px; margin-bottom: 48px; }
+    .one-pager-waw  { max-width: 168px; margin-top: 32px; margin-bottom: 40px; }
   }
 
   /* REVEAL */
