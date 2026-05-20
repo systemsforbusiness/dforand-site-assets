@@ -1061,8 +1061,19 @@
 
     /* POV stats stacking 2x2; tighten label tracking for FR length */
     .pov-stat-label { letter-spacing: 0.03em; }
+
+    /* Engagement tile CTAs: bump touch target to 48px (was ~38-42px) */
+    .offer-tile-cta { padding: 16px 22px; min-height: 48px; }
   }
   @media (max-width: 500px) {
     .nav-cta { padding: 12px 14px; font-size: 11px; min-height: 44px; }
     .hero h1 { font-size: clamp(30px, 9vw, 40px); }
+  }
+  @media (max-width: 420px) {
+    /* On the narrowest phones the sticky nav can't fit brand + lang
+       toggle + the "Book ALIGN Session" CTA without overflow. The hero
+       CTA and the Final-CTA section both surface booking again within
+       the first scroll, so we drop the nav button here to keep the
+       nav clean. */
+    .nav-cta { display: none; }
   }
