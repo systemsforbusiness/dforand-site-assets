@@ -886,11 +886,14 @@
   .pov h2 em { font-family: var(--font-editorial); font-style: italic; font-weight: 500; color: var(--teal-deep); }
   .pov-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(24px, 3vw, 40px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(28px, 3.5vw, 48px);
     margin-bottom: 48px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  @media (max-width: 800px) { .pov-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+  @media (max-width: 700px) { .pov-stats { grid-template-columns: 1fr; gap: 28px; } }
   .pov-stat-num {
     font-size: clamp(28px, 3vw, 40px);
     font-weight: 700;
