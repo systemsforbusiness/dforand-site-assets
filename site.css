@@ -1077,3 +1077,162 @@
        nav clean. */
     .nav-cta { display: none; }
   }
+
+  /* ------- LEGAL PAGES (privacy / terms / returns / contact) -------
+   * The pages share the structure:
+   *   <main class="legal-page">
+   *     <div class="container">
+   *       <div class="content">
+   *         <div class="eyebrow">…</div>
+   *         <h1>…</h1>
+   *         <p class="lead">…</p>
+   *         <p class="updated">…</p>
+   *         <h2>…</h2>  <p>…</p>  <ul>…</ul>  etc.
+   * Until now there was no rhythm CSS for these elements at all, which
+   * caused the "everything jammed together" problem on the live pages.
+   */
+  .legal-page {
+    background: var(--bg);
+    padding: clamp(72px, 9vw, 120px) 0 clamp(96px, 11vw, 140px);
+    min-height: 60vh;
+  }
+  .legal-page .content {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .legal-page .eyebrow {
+    margin-bottom: 28px;
+  }
+  .legal-page h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.6vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .legal-page .lead {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .legal-page .updated {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .legal-page h2 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-top: 56px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .legal-page h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--navy);
+    margin-top: 32px;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .legal-page p,
+  .legal-page li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .legal-page p {
+    margin-bottom: 16px;
+  }
+  .legal-page ul,
+  .legal-page ol {
+    margin: 0 0 24px 24px;
+    padding: 0;
+  }
+  .legal-page li {
+    margin-bottom: 12px;
+    padding-left: 6px;
+  }
+  .legal-page a {
+    color: var(--teal-deep);
+    border-bottom: 1px solid rgba(31, 165, 159, 0.3);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .legal-page a:hover {
+    color: var(--navy);
+    border-bottom-color: var(--navy);
+  }
+  .legal-page .note {
+    background: var(--bg-alt);
+    border-left: 3px solid var(--teal);
+    padding: 20px 24px;
+    margin: 24px 0 32px;
+  }
+  .legal-page .note p { margin-bottom: 0; }
+  .legal-page strong { font-weight: 700; color: var(--navy); }
+
+  /* Contact page uses bold inline labels (Email, LinkedIn, Office, etc.)
+     as pseudo-headings inside paragraphs. Promote them to proper headings
+     visually so the page reads like the others. */
+  .legal-page p > strong:first-child:only-child,
+  .legal-page p > strong:first-child {
+    display: inline;
+  }
+
+  /* Contact page only — the 4 contact methods sit in a 2x2 grid of cards,
+     then standard h2/p blocks follow underneath. */
+  .legal-page .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 16px 0 56px;
+  }
+  .legal-page .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    padding: 28px 28px 24px;
+    position: relative;
+  }
+  .legal-page .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 2px;
+    background: var(--teal);
+  }
+  .legal-page .contact-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+  .legal-page .contact-card p {
+    margin-bottom: 12px;
+  }
+  .legal-page .contact-card p:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  @media (max-width: 700px) {
+    .legal-page .contact-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  @media (max-width: 640px) {
+    .legal-page { padding: 64px 0 88px; }
+    .legal-page h2 { margin-top: 44px; }
+    .legal-page p, .legal-page li { font-size: 15.5px; line-height: 1.65; }
+    .legal-page .updated { margin-bottom: 40px; }
+    .legal-page .contact-card { padding: 24px 22px 20px; }
+  }
