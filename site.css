@@ -210,8 +210,11 @@
   .hero-photo .frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
+    /* contain keeps the full subject visible against the navy frame
+       (the portrait is a transparent-bg cutout, so the navy reads as
+       intentional negative space rather than being cropped through her) */
+    object-fit: contain;
+    object-position: center bottom;
     display: block;
   }
   .hero-photo .accent-dot {
