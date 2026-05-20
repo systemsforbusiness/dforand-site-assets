@@ -201,11 +201,12 @@
     width: clamp(380px, 42vw, 520px);
     max-height: calc(100vh - 200px);
     aspect-ratio: 4/5;
-    overflow: hidden;
-    background: var(--navy);
-    box-shadow:
-      0 30px 60px -20px rgba(26, 32, 53, 0.35),
-      0 12px 24px -10px rgba(26, 32, 53, 0.2);
+    overflow: visible;
+    /* No background, no shadow — the transparent-cutout portrait floats
+       directly on the off-white canvas. The teal circle behind and the
+       solid accent-dot below provide all the framing the hero needs. */
+    background: transparent;
+    box-shadow: none;
   }
   .hero-photo .frame img {
     width: 100%;
