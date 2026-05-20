@@ -555,6 +555,13 @@
     max-width: 880px;
     margin: 0 auto;
   }
+  .hero-vsl {
+    max-width: 760px;
+    margin: 24px auto 32px;
+  }
+  @media (max-width: 700px) {
+    .hero-vsl { margin: 16px auto 24px; }
+  }
   .vsl-frame {
     position: relative;
     width: 100%;
